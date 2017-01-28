@@ -21,9 +21,11 @@ const HEROES: Hero[] = [
 @Component({
   selector: 'my-app',
   template: `
-    <h2>My Heroes</h2>
+    <h2>{{title}}</h2>
     <ul class="heroes">
-      <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+      <li *ngFor="let hero of heroes"
+       [class.selected]="hero === selectedHero"s
+       (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span>{{hero.name}}
       </li>
     </ul>
@@ -89,7 +91,7 @@ const HEROES: Hero[] = [
 })
 
 export class AppComponent  { 
-   title = 'Tour of Heroes';
+   title = 'My Heroes';
    heroes = HEROES;
    selectedHero: Hero;
 
